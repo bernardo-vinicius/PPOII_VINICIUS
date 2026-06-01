@@ -1,0 +1,11 @@
+services:
+    bovbackend:
+      container_name: bov_app
+      build: .
+      ports:
+        - "3000:3000"
+      volumes:
+        - .:/src/app
+        - /src/app/node_modules
+      working_dir: /src/app
+      command: npm start
