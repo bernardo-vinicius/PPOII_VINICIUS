@@ -1,11 +1,16 @@
 services:
     bovbackend:
       container_name: bov_app
-      build: .
+      build: 
+        context: ./server
       ports:
         - "3000:3000"
-      volumes:
-        - .:/src/app
-        - /src/app/node_modules
-      working_dir: /src/app
+      networks:
+            - bov-network
+      env_file:
+          - ./server/.env
       command: npm start
+
+networks:
+    bov-network:
+        name: bov-network

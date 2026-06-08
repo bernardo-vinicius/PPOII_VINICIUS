@@ -1,0 +1,36 @@
+// Define o provedor do cliente gerado (para JavaScript/TypeScript)
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Define a fonte de dados (nosso banco de dados)
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Modelo para os usuários da aplicação
+model Usuario {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  senha  String
+  nome      String
+  data_criacao DateTime @default(now())
+  
+
+  // Relação: um usuário pode ter muitas postagens
+  postagens Postagem[]
+}
+
+// Modelo para as postagens do blog
+model Postagem {
+  id        Int      @id @default(autoincrement())
+  titulo     String
+  corpo   String
+  data_criacao DateTime @default(now())
+  
+
+  // Relação: uma postagem pertence a um autor
+  autorId  Int      
+  autor    Usuario     @relation(fields: [autorId], references: [id])
+}
