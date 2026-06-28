@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login de Usuário</title>
+  </head>
+  <body>
+    <main>
+      <h1>NeoBov</h1>
+      <p>Entre na sua conta</p>
+
+      <div>
+        <form method="post" action="">
+          <fieldset>
+            <legend>Login</legend>
+
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="nome@email.com"
+              autocomplete="email"
+              required
+            />
+
+            <!--
+          Adicionar as seguintes funcionalidades as senhas:
+          - "Olho" de toggle na visibilidade da senha
+          - Opção "Esqueceu a senha?" (Talvez)
+           -->
+            <label for="password">Senha:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              minlength="8"
+              autocomplete="current-password"
+              required
+            />
+
+            <label>
+              <input
+                type="checkbox"
+                id="remember"
+                name="remember"
+                value="true"
+              />
+              Lembrar-me
+              <!--Opção "Lembrar-me": Fazer funcionar com o backend -->
+            </label>
+          </fieldset>
+
+          <button type="submit">Entrar</button>
+          <p>
+            Não possui uma conta?
+            <a href="./register.html">Cadastre-se</a>
+          </p>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
