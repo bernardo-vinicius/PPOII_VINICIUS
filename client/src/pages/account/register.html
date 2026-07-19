@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Usuário</title>
+  </head>
+  <body>
+    <main>
+      <h1>NeoBov</h1>
+      <p>Crie sua conta</p>
+
+      <form method="post">
+        <fieldset>
+          <legend>Dados de Acesso</legend>
+
+          <label for="username">Nome de Usuário: *</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Nome"
+            required
+          />
+
+          <label for="email">E-mail: *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="nome@email.com"
+            required
+          />
+
+          <!-- Validar se a senha é segura no JS -->
+          <label for="password">Senha: *</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            minlength="8"
+            required
+          />
+          <small>
+            Mínimo 8 caracteres, 1 símbolo, 1 número, 1 letra maiúscula e 1
+            letra minúscula.
+          </small>
+
+          <!-- Verificar no JS se este campo é igual ao de senha -->
+          <label for="password-confirmed">Confirmar Senha: *</label>
+          <input
+            type="password"
+            id="password-confirmed"
+            name="password-confirmed"
+            minlength="8"
+            required
+          />
+        </fieldset>
+
+        <!-- Seção de Endereço de Usuário removidada (ao menos temporariamente)  -->
+
+        <button type="submit">Cadastrar-se</button>
+        <button type="reset">Cancelar</button>
+      </form>
+
+      <p>Já tem uma conta? <a href="./login.html">Faça login</a></p>
+    </main>
+  </body>
+</html>

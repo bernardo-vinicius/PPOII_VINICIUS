@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Animal</title>
+  </head>
+  <body>
+    <header>
+      <a href="../account/control.html">Voltar ao Painel de Controle</a>
+      <h1>Cadastrar Novo Animal</h1>
+    </header>
+    <main>
+      <form method="post">
+        <fieldset>
+          <legend>Identificação do Animal</legend>
+
+          <label for="name">Número/Nome de Identificação: *</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Mimosa"
+            required
+          />
+
+          <label for="lot">Lote: *</label>
+          <select name="lot" id="lot" required>
+            <option value="" selected disabled>Selecione</option>
+
+            <!-- Valores 'option' provenientes do backend (tabela lotes) -->
+            <option value="teste">*Lote Teste</option>
+          </select>
+          <small>
+            Lote não encontrado?
+            <a href="../lots/create.html">Cadastre um novo lote</a>
+          </small>
+        </fieldset>
+
+        <fieldset>
+          <legend>Dados Biológicos</legend>
+
+          <label for="weight">Peso (Kg): *</label>
+          <input
+            type="number"
+            id="weight"
+            name="weight"
+            min="1"
+            placeholder="50"
+            required
+          />
+
+          <label for="age">Idade (Meses): *</label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            min="1"
+            placeholder="10"
+            required
+          />
+
+          <label for="sex">Sexo: *</label>
+          <select id="sex" name="sex" required>
+            <option value="" selected disabled>Selecione</option>
+            <option value="male">Macho</option>
+            <option value="female">Fêmea</option>
+          </select>
+
+          <!-- Este campo pode ser select, dependendo da quantidade de raças -->
+          <label for="breed">Raça: *</label>
+          <input
+            type="text"
+            id="breed"
+            name="breed"
+            placeholder="Holândes"
+            required
+          />
+        </fieldset>
+
+        <fieldset>
+          <legend>Dados de Saúde</legend>
+
+          <label for="vaccines">Vacinas Aplicadas:</label>
+          <textarea
+            id="vaccines"
+            name="vaccines"
+            placeholder="Liste as vacinas e suas respectivas datas de aplicação"
+          ></textarea>
+
+          <label for="diseases">Histórico de Doenças:</label>
+          <textarea
+            id="diseases"
+            name="diseases"
+            placeholder="Descreva doenças anteriores e seus respectivos tratamentos"
+          ></textarea>
+
+          <label for="extras">Informações Extras:</label>
+          <textarea
+            id="extras"
+            name="extras"
+            placeholder="Informações extras relevantes"
+          ></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Foto de Identificação</legend>
+
+          <label for="image">Imagem para detectação: *</label>
+          <input type="file" name="image" id="image" required />
+        </fieldset>
+
+        <button type="submit">Cadastrar Animal</button>
+        <button type="reset">Cancelar</button>
+      </form>
+    </main>
+  </body>
+</html>
