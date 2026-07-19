@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro de Animal</title>
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
@@ -17,114 +21,224 @@
       defer
     ></script>
   </head>
-  <body>
-    <header>
-      <a href="../account/control.html">Voltar ao Painel de Controle</a>
-      <h1>Cadastrar Novo Animal</h1>
+
+  <body class="bg-light d-flex flex-column min-vh-100">
+    <header class="bg-white border-bottom shadow-sm">
+      <div class="container d-flex align-items-center gap-3 py-3">
+        <a
+          href="../account/control.html"
+          class="btn btn-outline-secondary"
+          aria-label="Voltar ao painel de controle"
+        >
+          <i class="bi bi-arrow-left"></i>
+        </a>
+
+        <h1 class="h4 mb-0">NeoBov - Cadastro de Animal</h1>
+      </div>
     </header>
-    <main>
-      <form method="post">
-        <fieldset>
-          <legend>Identificação do Animal</legend>
 
-          <label for="name">Número/Nome de Identificação: *</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Mimosa"
-            required
-          />
+    <main
+      class="d-flex justify-content-center align-items-center flex-grow-1 my-3"
+    >
+      <!-- TODO: mover o max-width para uma classe CSS -->
+      <div class="card shadow p-5 w-100" style="max-width: 800px">
+        <form method="post" enctype="multipart/form-data" class="vstack gap-4">
+          <fieldset>
+            <legend class="fs-4 fw-semibold mb-3">
+              Identificação do Animal
+            </legend>
 
-          <label for="lot">Lote: *</label>
-          <select name="lot" id="lot" required>
-            <option value="" selected disabled>Selecione</option>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label">
+                  Número/Nome de Identificação
+                  <span class="text-danger">*</span>
+                </label>
 
-            <!-- Valores 'option' provenientes do backend (tabela lotes) -->
-            <option value="teste">*Lote Teste</option>
-          </select>
-          <small>
-            Lote não encontrado?
-            <a href="../lots/create.html">Cadastre um novo lote</a>
-          </small>
-        </fieldset>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Mimosa"
+                  required
+                />
+              </div>
 
-        <fieldset>
-          <legend>Dados Biológicos</legend>
+              <div class="col-md-6">
+                <label for="lot" class="form-label">
+                  Lote
+                  <span class="text-danger">*</span>
+                </label>
 
-          <label for="weight">Peso (Kg): *</label>
-          <input
-            type="number"
-            id="weight"
-            name="weight"
-            min="1"
-            placeholder="50"
-            required
-          />
+                <select class="form-select" id="lot" name="lot" required>
+                  <option value="" selected disabled>Selecione</option>
 
-          <label for="age">Idade (Meses): *</label>
-          <input
-            type="number"
-            id="age"
-            name="age"
-            min="1"
-            placeholder="10"
-            required
-          />
+                  <!-- Valores provenientes do backend -->
+                  <option value="teste">Lote Teste</option>
+                </select>
 
-          <label for="sex">Sexo: *</label>
-          <select id="sex" name="sex" required>
-            <option value="" selected disabled>Selecione</option>
-            <option value="male">Macho</option>
-            <option value="female">Fêmea</option>
-          </select>
+                <div class="form-text">
+                  Lote não encontrado?
+                  <a href="../lots/create.html"> Cadastre um novo lote </a>
+                </div>
+              </div>
+            </div>
+          </fieldset>
 
-          <!-- Este campo pode ser select, dependendo da quantidade de raças -->
-          <label for="breed">Raça: *</label>
-          <input
-            type="text"
-            id="breed"
-            name="breed"
-            placeholder="Holândes"
-            required
-          />
-        </fieldset>
+          <fieldset>
+            <legend class="fs-4 fw-semibold mb-3">Dados Biológicos</legend>
 
-        <fieldset>
-          <legend>Dados de Saúde</legend>
+            <div class="row g-3">
+              <div class="col-md-3">
+                <label for="weight" class="form-label">
+                  Peso (kg)
+                  <span class="text-danger">*</span>
+                </label>
 
-          <label for="vaccines">Vacinas Aplicadas:</label>
-          <textarea
-            id="vaccines"
-            name="vaccines"
-            placeholder="Liste as vacinas e suas respectivas datas de aplicação"
-          ></textarea>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="weight"
+                  name="weight"
+                  min="1"
+                  placeholder="50"
+                  required
+                />
+              </div>
 
-          <label for="diseases">Histórico de Doenças:</label>
-          <textarea
-            id="diseases"
-            name="diseases"
-            placeholder="Descreva doenças anteriores e seus respectivos tratamentos"
-          ></textarea>
+              <div class="col-md-3">
+                <label for="age" class="form-label">
+                  Idade (meses)
+                  <span class="text-danger">*</span>
+                </label>
 
-          <label for="extras">Informações Extras:</label>
-          <textarea
-            id="extras"
-            name="extras"
-            placeholder="Informações extras relevantes"
-          ></textarea>
-        </fieldset>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="age"
+                  name="age"
+                  min="1"
+                  placeholder="10"
+                  required
+                />
+              </div>
 
-        <fieldset>
-          <legend>Foto de Identificação</legend>
+              <div class="col-md-3">
+                <label for="sex" class="form-label">
+                  Sexo
+                  <span class="text-danger">*</span>
+                </label>
 
-          <label for="image">Imagem para detectação: *</label>
-          <input type="file" name="image" id="image" required />
-        </fieldset>
+                <select class="form-select" id="sex" name="sex" required>
+                  <option value="" selected disabled>Selecione</option>
+                  <option value="male">Macho</option>
+                  <option value="female">Fêmea</option>
+                </select>
+              </div>
 
-        <button type="submit">Cadastrar Animal</button>
-        <button type="reset">Cancelar</button>
-      </form>
+              <div class="col-md-3">
+                <label for="breed" class="form-label">
+                  Raça
+                  <span class="text-danger">*</span>
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  id="breed"
+                  name="breed"
+                  placeholder="Holandês"
+                  required
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="fs-4 fw-semibold mb-3">Dados de Saúde</legend>
+
+            <div class="mb-3">
+              <label for="vaccines" class="form-label">
+                Vacinas Aplicadas
+              </label>
+
+              <textarea
+                class="form-control"
+                id="vaccines"
+                name="vaccines"
+                rows="3"
+                placeholder="Liste as vacinas e suas respectivas datas de aplicação"
+              ></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="diseases" class="form-label">
+                Histórico de Doenças
+              </label>
+
+              <textarea
+                class="form-control"
+                id="diseases"
+                name="diseases"
+                rows="3"
+                placeholder="Descreva doenças anteriores e seus respectivos tratamentos"
+              ></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="extras" class="form-label">
+                Informações Extras
+              </label>
+
+              <textarea
+                class="form-control"
+                id="extras"
+                name="extras"
+                rows="3"
+                placeholder="Informações adicionais relevantes"
+              ></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="fs-4 fw-semibold mb-3">Foto de Identificação</legend>
+
+            <div>
+              <label for="image" class="form-label">
+                Imagem para detecção
+                <span class="text-danger">*</span>
+              </label>
+
+              <input
+                class="form-control"
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                required
+              />
+
+              <div class="form-text">
+                Envie uma imagem nítida do animal para facilitar sua
+                identificação.
+              </div>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-success py-2">
+            Cadastrar Animal
+          </button>
+        </form>
+      </div>
     </main>
+
+    <footer class="bg-white border-top py-3 mt-auto">
+      <div class="container text-center">
+        <small class="text-muted">
+          &copy; 2026 Vinícius Saraiva. Todos os direitos reservados.
+        </small>
+      </div>
+    </footer>
   </body>
 </html>
