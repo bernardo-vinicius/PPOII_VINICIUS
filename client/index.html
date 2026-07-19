@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HomePage</title>
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
@@ -17,53 +21,164 @@
       defer
     ></script>
   </head>
-  <body>
-    <header>
-      <h1>NeoBov</h1>
-      <p>Método automatizado de baixo custo para identificação de bovinos</p>
+  <body class="bg-light d-flex flex-column min-vh-100">
+    <header class="bg-white border-bottom shadow-sm">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light py-3">
+          <a class="navbar-brand fw-bold text-primary" href="#">NeoBov</a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="#about">Sobre</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#features">Funcionalidades</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Créditos</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </header>
-    <main>
-      <div>
-        <h2>Sobre o sistema</h2>
-        <p>
-          O NeoBov é uma plataforma inovadora que utiliza tecnologia de ponta
-          para automatizar a identificação e gestão de bovinos, oferecendo uma
-          solução acessível e eficiente para produtores rurais.
-        </p>
-        <p>
-          Utilizando inteligência artificial e visão computacional, nosso
-          sistema permite o cadastro, monitoramento e análise de rebanhos
-          bovinos de forma simples e intuitiva.
-        </p>
-      </div>
 
-      <div>
-        <h2>Funcionalidades</h2>
-        <div>
-          <h3>Cadastro de Animais</h3>
-          <p>Registre seus bovinos com fotos e dados biológicos</p>
-        </div>
-        <div>
-          <h3>Gestão de Lotes</h3>
-          <p>Organize seus animais por propriedade e lote</p>
-        </div>
-        <div>
-          <h3>Monitoramento de Saúde</h3>
-          <p>Acompanhe vacinas e histórico de doenças</p>
-        </div>
-        <div>
-          <h3>Estatísticas e Relatórios</h3>
-          <p>Gere análises detalhadas do seu rebanho</p>
-        </div>
-      </div>
+    <main class="flex-grow-1">
+      <section class="container py-5">
+        <div class="text-center py-5">
+          <h1 class="display-4 fw-bold text-primary mb-4">NeoBov</h1>
 
-      <div>
-        <a href="./src/pages/account/login.html">Fazer Login</a>
-        <a href="./src/pages/account/register.html">Criar Conta</a>
-      </div>
+          <p class="lead text-muted mx-auto" style="max-width: 700px">
+            Método automatizado de baixo custo para identificação de bovinos
+            utilizando Inteligência Artificial e Visão Computacional.
+          </p>
+
+          <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+            <a
+              href="./src/pages/account/login.html"
+              class="btn btn-primary btn-lg"
+            >
+              Fazer Login
+            </a>
+
+            <a
+              href="./src/pages/account/register.html"
+              class="btn btn-outline-primary btn-lg"
+            >
+              Criar Conta
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="container mb-5">
+        <div class="card shadow-sm">
+          <div class="card-body p-5">
+            <h2 class="mb-4 text-primary">Sobre o Sistema</h2>
+
+            <p>
+              O NeoBov é uma plataforma inovadora que utiliza tecnologia de
+              ponta para automatizar a identificação e gestão de bovinos,
+              oferecendo uma solução acessível e eficiente para produtores
+              rurais.
+            </p>
+
+            <p class="mb-0">
+              Utilizando Inteligência Artificial e Visão Computacional, nosso
+              sistema permite o cadastro, monitoramento e análise de rebanhos
+              bovinos de forma simples, intuitiva e segura.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="container mb-5">
+        <h2 class="text-center text-primary mb-4">Funcionalidades</h2>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <div class="display-5 mb-3">
+                  <i class="bi bi-upc-scan"></i>
+                </div>
+
+                <h5>Cadastro de Animais</h5>
+
+                <p class="text-muted mb-0">
+                  Registre bovinos utilizando fotos e dados biológicos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <div class="display-5 mb-3"><i class="bi bi-grid"></i></div>
+
+                <h5>Gestão de Lotes</h5>
+
+                <p class="text-muted mb-0">
+                  Organize animais por propriedade e lote.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <div class="display-5 mb-3">
+                  <i class="bi bi-heart-pulse"></i>
+                </div>
+
+                <h5>Saúde Animal</h5>
+
+                <p class="text-muted mb-0">
+                  Controle vacinas e histórico de doenças.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <div class="display-5 mb-3">
+                  <i class="bi bi-bar-chart"></i>
+                </div>
+
+                <h5>Relatórios</h5>
+
+                <p class="text-muted mb-0">
+                  Gere estatísticas completas do rebanho.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer>
-      <small> 2026 Vinícius Saraiva. Todos os direitos reservados. </small>
+
+    <footer id="contact" class="bg-white border-top py-3 mt-auto">
+      <div class="container text-center">
+        <small class="text-muted">
+          &copy; 2026 Vinícius Saraiva. Todos os direitos reservados.
+        </small>
+      </div>
     </footer>
   </body>
 </html>
