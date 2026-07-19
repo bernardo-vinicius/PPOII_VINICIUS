@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro de Usuário</title>
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
@@ -17,65 +21,117 @@
       defer
     ></script>
   </head>
-  <body>
-    <main>
-      <h1>NeoBov</h1>
-      <p>Crie sua conta</p>
+  <body class="bg-light d-flex flex-column min-vh-100">
+    <header class="bg-white border-bottom shadow-sm">
+      <div class="container d-flex align-items-center gap-3 py-3">
+        <a
+          href="/client/index.html"
+          class="btn btn-outline-secondary"
+          aria-label="Voltar para a página inicial"
+        >
+          <i class="bi bi-arrow-left"></i>
+        </a>
 
-      <form method="post">
-        <fieldset>
-          <legend>Dados de Acesso</legend>
+        <h1 class="h4 mb-0">NeoBov - Cadastro de Usuário</h1>
+      </div>
+    </header>
+    <main
+      class="d-flex justify-content-center align-items-center flex-grow-1 mt-2 mb-2"
+    >
+      <!-- TODO: mover o max-width para uma classe CSS (ex.: .login-card) -->
+      <div class="card shadow p-5 w-100" style="max-width: 450px">
+        <form method="post" class="vstack gap-4">
+          <fieldset>
+            <legend class="text-center fs-2 fw-semibold mb-4">
+              Dados de Cadastro
+            </legend>
 
-          <label for="username">Nome de Usuário: *</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Nome"
-            required
-          />
+            <div class="mb-3">
+              <label for="username" class="form-label"
+                >Nome de Usuário <span class="text-danger">*</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                autocomplete="username"
+                placeholder="Nome"
+                required
+              />
+            </div>
 
-          <label for="email">E-mail: *</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="nome@email.com"
-            required
-          />
+            <div class="mb-3">
+              <label for="email" class="form-label"
+                >E-mail <span class="text-danger">*</span></label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                autocomplete="email"
+                placeholder="nome@email.com"
+                required
+              />
+            </div>
 
-          <!-- Validar se a senha é segura no JS -->
-          <label for="password">Senha: *</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            minlength="8"
-            required
-          />
-          <small>
-            Mínimo 8 caracteres, 1 símbolo, 1 número, 1 letra maiúscula e 1
-            letra minúscula.
-          </small>
+            <!-- Validar se a senha é segura no JS -->
+            <div class="mb-3">
+              <label for="password" class="form-label"
+                >Senha <span class="text-danger">*</span></label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              />
+              <div class="form-text">
+                (Mínimo 8 caracteres, 1 símbolo, 1 número, 1 letra maiúscula e 1
+                letra minúscula)
+              </div>
+            </div>
 
-          <!-- Verificar no JS se este campo é igual ao de senha -->
-          <label for="password-confirmed">Confirmar Senha: *</label>
-          <input
-            type="password"
-            id="password-confirmed"
-            name="password-confirmed"
-            minlength="8"
-            required
-          />
-        </fieldset>
+            <!-- Verificar no JS se este campo é igual ao de senha -->
+            <div class="mb-3">
+              <label for="new-password" class="form-label"
+                >Confirmar Senha <span class="text-danger">*</span></label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="new-password"
+                name="new-password"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              />
+            </div>
+          </fieldset>
 
-        <!-- Seção de Endereço de Usuário removidada (ao menos temporariamente)  -->
+          <!-- Seção de Endereço de Usuário removidada (ao menos temporariamente)  -->
 
-        <button type="submit">Cadastrar-se</button>
-        <button type="reset">Cancelar</button>
-      </form>
-
-      <p>Já tem uma conta? <a href="./login.html">Faça login</a></p>
+          <button type="submit" class="btn btn-success w-100 py-2">
+            Cadastre-se
+          </button>
+          <div class="small">
+            <p class="mb-0">
+              Já possui uma conta? <a href="./login.html">Faça login</a>
+            </p>
+          </div>
+        </form>
+      </div>
     </main>
+    <footer class="bg-white border-top py-3 mt-auto">
+      <div class="container text-center">
+        <small class="text-muted">
+          &copy; 2026 Vinícius Saraiva. Todos os direitos reservados.
+        </small>
+      </div>
+    </footer>
   </body>
 </html>
