@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --radius: 0.6rem;
+  --transition: 0.25s;
+  --font: "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font);
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+
+.card,
+.btn,
+.form-control,
+.form-select,
+textarea,
+header,
+footer {
+  transition: 0.25s;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
