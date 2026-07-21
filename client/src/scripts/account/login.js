@@ -1,4 +1,4 @@
-import { setupPasswordToggle } from "../utils.js";
+import { setupPasswordToggle } from "../utils/password-toggle.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   setupPasswordToggle("#password", "#toggle-password");
