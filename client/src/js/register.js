@@ -1,1 +1,0 @@
-// Register JS code
