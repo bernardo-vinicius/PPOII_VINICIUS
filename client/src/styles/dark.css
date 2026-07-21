@@ -1,0 +1,59 @@
+:root {
+  --bg: #181a17;
+  --surface: #232622;
+  --text: #f2f2f2;
+  --muted: #bdbdbd;
+  --primary: #66bb6a;
+  --primary-hover: #81c784;
+  --danger: #ef5350;
+  --secondary: #a1887f;
+  --border: #444;
+  --input: #303330;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+header,
+footer,
+.card {
+  background: var(--surface) !important;
+  color: var(--text);
+}
+
+.border-top,
+.border-bottom {
+  border-color: var(--border) !important;
+}
+
+.form-control,
+.form-select,
+textarea {
+  background: var(--input);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.form-control::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+  background: var(--input);
+  color: var(--text);
+}
+
+.text-muted {
+  color: var(--muted) !important;
+}
+
+.btn-success {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: black;
+}

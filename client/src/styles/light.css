@@ -1,0 +1,44 @@
+:root {
+  --bg: #f7f5ef;
+  --surface: #ffffff;
+  --text: #2b2b2b;
+  --muted: #666;
+  --primary: #2e7d32;
+  --primary-hover: #1b5e20;
+  --danger: #c62828;
+  --secondary: #8d6e63;
+  --border: #dddddd;
+  --input: #ffffff;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+header,
+footer,
+.card {
+  background: var(--surface);
+}
+
+.form-control,
+.form-select,
+textarea {
+  background: var(--input);
+}
+
+.btn-success {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-success:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.btn-outline-secondary {
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
