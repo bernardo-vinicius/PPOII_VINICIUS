@@ -20,6 +20,7 @@
       crossorigin="anonymous"
       defer
     ></script>
+    <script type="module" src="../../scripts/account/login.js" defer></script>
   </head>
   <body class="bg-light d-flex flex-column min-vh-100">
     <header class="bg-white border-bottom shadow-sm">
@@ -70,15 +71,26 @@
               <label for="password" class="form-label"
                 >Senha <span class="text-danger">*</span></label
               >
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                name="password"
-                minlength="8"
-                autocomplete="current-password"
-                required
-              />
+              <div class="position-relative">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="********"
+                  minlength="8"
+                  autocomplete="current-password"
+                  required
+                />
+                <button
+                  type="button"
+                  id="toggle-password"
+                  class="btn position-absolute top-50 end-0 translate-middle-y border-0 bg-transparent me-2 p-0"
+                  aria-label="Mostrar senha"
+                >
+                  <i class="bi bi-eye-fill"></i>
+                </button>
+              </div>
             </div>
 
             <div class="form-check">
@@ -101,7 +113,6 @@
             Entrar
           </button>
           <div class="small">
-            <a href="./control.html">Acesso temporário a tela de controle</a>
             <p class="mb-0">
               Não possui uma conta?
               <a href="./register.html">Cadastre-se</a>

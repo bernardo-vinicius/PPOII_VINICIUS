@@ -20,6 +20,11 @@
       crossorigin="anonymous"
       defer
     ></script>
+    <script
+      type="module"
+      src="../../scripts/account/register.js"
+      defer
+    ></script>
   </head>
   <body class="bg-light d-flex flex-column min-vh-100">
     <header class="bg-white border-bottom shadow-sm">
@@ -81,15 +86,26 @@
               <label for="password" class="form-label"
                 >Senha <span class="text-danger">*</span></label
               >
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                name="password"
-                autocomplete="new-password"
-                minlength="8"
-                required
-              />
+              <div class="position-relative">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="********"
+                  minlength="8"
+                  autocomplete="new-password"
+                  required
+                />
+                <button
+                  type="button"
+                  id="toggle-password"
+                  class="btn position-absolute top-50 end-0 translate-middle-y border-0 bg-transparent me-2 p-0"
+                  aria-label="Mostrar senha"
+                >
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
               <div class="form-text">
                 (Mínimo 8 caracteres, 1 símbolo, 1 número, 1 letra maiúscula e 1
                 letra minúscula)
@@ -98,24 +114,39 @@
 
             <!-- Verificar no JS se este campo é igual ao de senha -->
             <div class="mb-3">
-              <label for="new-password" class="form-label"
+              <label for="confirm-password" class="form-label"
                 >Confirmar Senha <span class="text-danger">*</span></label
               >
-              <input
-                type="password"
-                class="form-control"
-                id="new-password"
-                name="new-password"
-                autocomplete="new-password"
-                minlength="8"
-                required
-              />
+              <div class="position-relative">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirm-password"
+                  name="confirm-password"
+                  placeholder="********"
+                  minlength="8"
+                  autocomplete="new-password"
+                  required
+                />
+                <button
+                  type="button"
+                  id="toggle-confirm-password"
+                  class="btn position-absolute top-50 end-0 translate-middle-y border-0 bg-transparent me-2 p-0"
+                  aria-label="Mostrar confirmação da senha"
+                >
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
             </div>
           </fieldset>
 
           <!-- Seção de Endereço de Usuário removidada (ao menos temporariamente)  -->
 
-          <button type="submit" class="btn btn-success w-100 py-2">
+          <button
+            id="submit-btn"
+            type="submit"
+            class="btn btn-success w-100 py-2"
+          >
             Cadastre-se
           </button>
           <div class="small">
