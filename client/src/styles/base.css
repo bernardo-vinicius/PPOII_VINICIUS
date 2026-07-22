@@ -31,7 +31,7 @@ body {
 }
 
 /* ===================================================
-   CABEÇALHO E NAVBAR (Correção de cores dos links)
+   CABEÇALHO E NAVBAR
    =================================================== */
 
 header,
@@ -52,19 +52,16 @@ header .navbar,
   gap: 0.5rem;
 }
 
-/* Cor base de todos os links da navbar */
 .navbar .nav-link {
   color: var(--text-color) !important;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
-/* Hover simples nos links */
 .navbar .nav-link:hover {
   color: var(--primary-color) !important;
 }
 
-/* Remove a retenção da cor verde quando o link perde o foco ou rola a página */
 .navbar .nav-link:focus,
 .navbar .nav-link:active {
   color: var(--text-color) !important;
@@ -75,31 +72,71 @@ header .navbar,
 }
 
 /* ===================================================
+   BOTÃO HOME (VERMELHO)
+   =================================================== */
+
+.btn-home-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  border-radius: 0.6rem;
+  padding: 0.45rem 0.9rem;
+  transition: all 0.25s ease;
+}
+
+/* ☀️ Modo Claro: Vermelho Suave */
+:root:not([data-theme="dark"]) .btn-home-danger {
+  background-color: #f22424 !important;
+  color: #f3e2e2 !important;
+  border: 1px solid #fca5a5 !important;
+}
+
+:root:not([data-theme="dark"]) .btn-home-danger:hover {
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+  border-color: #dc2626 !important;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+}
+
+/* 🌙 Modo Escuro: Vermelho Vivo e Reluzente */
+[data-theme="dark"] .btn-home-danger {
+  background-color: rgba(239, 68, 68, 0.12) !important;
+  color: #f87171 !important;
+  border: 1px solid #991b1b !important;
+}
+
+[data-theme="dark"] .btn-home-danger:hover {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+}
+
+/* ===================================================
    BOTÃO SWITCH DE TEMA (#toggle-theme)
    =================================================== */
 
-/* Ajuste base e remoção dos estilos do Bootstrap (btn-outline-secondary) */
 #toggle-theme,
 .btn-theme-toggle {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   padding: 0.5rem 0.85rem !important;
-  border-radius: 0.6rem !important; /* Formato retangular */
+  border-radius: 0.6rem !important;
   font-size: 1.1rem !important;
   cursor: pointer !important;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 /* ☀️ 1. ESTILO DO SOL (FUNDO CLARO + SOL AMARELO) */
-/* Quando o botão contém o ícone do SOL (bi-sun ou bi-sun-fill) */
 #toggle-theme:has(.bi-sun),
 #toggle-theme:has(.bi-sun-fill),
 .btn-theme-toggle:has(.bi-sun),
 .btn-theme-toggle:has(.bi-sun-fill) {
-  background-color: #fffffff9 !important; /* Fundo Claro/Branco */
+  background-color: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
-  color: #eab308 !important; /* Sol Amarelo */
+  color: #eab308 !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
 }
 
@@ -116,16 +153,15 @@ header .navbar,
 }
 
 /* 🌙 2. ESTILO DA LUA (FUNDO ESCURO + LUA ROXA) */
-/* Quando o botão contém o ícone da LUA (bi-moon, bi-moon-fill ou bi-moon-stars-fill) */
 #toggle-theme:has(.bi-moon),
 #toggle-theme:has(.bi-moon-fill),
 #toggle-theme:has(.bi-moon-stars-fill),
 .btn-theme-toggle:has(.bi-moon),
 .btn-theme-toggle:has(.bi-moon-fill),
 .btn-theme-toggle:has(.bi-moon-stars-fill) {
-  background-color: #0d0d11 !important; /* Fundo Escuro / Preto */
-  border: 1px solid #4c1d95 !important; /* Borda Roxo Escuro */
-  color: #a855f7 !important; /* Lua Roxa */
+  background-color: #0d0d11 !important;
+  border: 1px solid #4c1d95 !important;
+  color: #a855f7 !important;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5) !important;
 }
 
@@ -144,7 +180,7 @@ header .navbar,
 }
 
 /* ===================================================
-   FORMULÁRIOS & CONTAINERS
+   CARDS & FORMULÁRIOS
    =================================================== */
 
 .page-card {
@@ -171,6 +207,13 @@ header .navbar,
     transform 0.25s ease,
     box-shadow 0.25s ease,
     border-color 0.25s ease;
+}
+
+/* Borda divisória dos headers padrão (ex: Resumo Geral) */
+.card-header:not([class*="bg-"]) {
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-color) !important;
+  color: var(--text-color);
 }
 
 .form-control,
@@ -296,7 +339,7 @@ section.py-5.text-center .lead {
 .form-text,
 small.text-muted {
   color: var(--text-muted-color) !important;
-  opacity: 1 !important; /* Remove qualquer transparência fraca */
+  opacity: 1 !important;
 }
 
 footer {
