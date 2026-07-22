@@ -1,44 +1,51 @@
 :root {
-  --bg: #f7f5ef;
-  --surface: #ffffff;
-  --text: #2b2b2b;
-  --muted: #666;
-  --primary: #2e7d32;
+  /* Plano de Fundo & Gradiantes */
+  --bg-color: #f2f7f1;
+  --bg-gradient: linear-gradient(180deg, #e4efe2 0%, #f2f7f1 100%);
+  --hero-bg: linear-gradient(135deg, #1b4d24 0%, #2e7d32 60%, #43a047 100%);
+  --hero-text: #ffffff;
+
+  /* Superfícies */
+  --surface-color: #ffffff;
+  --card-color: #ffffff;
+  --input-color: #f7faf6;
+
+  /* Texto Principal */
+  --text-color: #1a2e1d;
+
+  /* Texto Secundário (Muted) - Mais Vivo e Escuro */
+  --text-muted-color: #3d5240;
+
+  /* Cor do Ícone de Olho de Senha */
+  --eye-color: #1a2e1d;
+
+  /* Bordas */
+  --border-color: #cbd8c8;
+  --border-hover: #43a047;
+
+  /* Cores Agro da Marca */
+  --primary-color: #2e7d32;
   --primary-hover: #1b5e20;
-  --danger: #c62828;
-  --secondary: #8d6e63;
-  --border: #dddddd;
-  --input: #ffffff;
-}
+  --secondary-color: #8d5b28;
+  --secondary-hover: #6e441c;
+  --accent-color: #d97706;
 
-body {
-  background: var(--bg);
-  color: var(--text);
-}
+  /* Estados */
+  --success-color: #2e7d32;
+  --danger-color: #c62828;
+  --warning-color: #f57c00;
 
-header,
-footer,
-.card {
-  background: var(--surface);
-}
+  /* Ícones e Destaques dos Cards */
+  --icon-bg-green: #e8f5e9;
+  --icon-color-green: #2e7d32;
+  --icon-bg-yellow: #fff8e1;
+  --icon-color-yellow: #b78103;
+  --icon-bg-red: #ffebee;
+  --icon-color-red: #c62828;
 
-.form-control,
-.form-select,
-textarea {
-  background: var(--input);
-}
-
-.btn-success {
-  background: var(--primary);
-  border-color: var(--primary);
-}
-
-.btn-success:hover {
-  background: var(--primary-hover);
-  border-color: var(--primary-hover);
-}
-
-.btn-outline-secondary {
-  color: var(--secondary);
-  border-color: var(--secondary);
+  /* Sombras */
+  --focus-color: rgba(46, 125, 50, 0.25);
+  --shadow-sm: 0 2px 8px rgba(26, 46, 29, 0.06);
+  --shadow-lg: 0 10px 24px rgba(26, 46, 29, 0.1);
+  --hero-glow: rgba(67, 160, 71, 0.18);
 }

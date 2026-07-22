@@ -1,51 +1,306 @@
+/* ===================================================
+   RESET & CONFIGURAÇÕES GERAIS
+   =================================================== */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-:root {
-  --radius: 0.6rem;
-  --transition: 0.25s;
-  --font: "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 html {
+  font-size: 16px;
   scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
-  font-family: var(--font);
+  font-family:
+    "Plus Jakarta Sans",
+    "Segoe UI",
+    -apple-system,
+    sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-color);
   transition:
-    background 0.25s,
-    color 0.25s;
+    background 0.25s ease,
+    color 0.25s ease;
+  overflow-x: hidden;
 }
 
-.card,
-.btn,
+/* ===================================================
+   CABEÇALHO E NAVBAR (Correção de cores dos links)
+   =================================================== */
+
+header,
+header .navbar,
+.navbar {
+  background-color: var(--surface-color) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: var(--primary-color) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Cor base de todos os links da navbar */
+.navbar .nav-link {
+  color: var(--text-color) !important;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+/* Hover simples nos links */
+.navbar .nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Remove a retenção da cor verde quando o link perde o foco ou rola a página */
+.navbar .nav-link:focus,
+.navbar .nav-link:active {
+  color: var(--text-color) !important;
+}
+
+.navbar .nav-link:hover:focus {
+  color: var(--primary-color) !important;
+}
+
+/* ===================================================
+   BOTÃO SWITCH DE TEMA (#toggle-theme)
+   =================================================== */
+
+/* Ajuste base e remoção dos estilos do Bootstrap (btn-outline-secondary) */
+#toggle-theme,
+.btn-theme-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.5rem 0.85rem !important;
+  border-radius: 0.6rem !important; /* Formato retangular */
+  font-size: 1.1rem !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* ☀️ 1. ESTILO DO SOL (FUNDO CLARO + SOL AMARELO) */
+/* Quando o botão contém o ícone do SOL (bi-sun ou bi-sun-fill) */
+#toggle-theme:has(.bi-sun),
+#toggle-theme:has(.bi-sun-fill),
+.btn-theme-toggle:has(.bi-sun),
+.btn-theme-toggle:has(.bi-sun-fill) {
+  background-color: #fffffff9 !important; /* Fundo Claro/Branco */
+  border: 1px solid #e2e8f0 !important;
+  color: #eab308 !important; /* Sol Amarelo */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+#toggle-theme:has(.bi-sun) i,
+#toggle-theme:has(.bi-sun-fill) i {
+  color: #eab308 !important;
+}
+
+#toggle-theme:has(.bi-sun):hover,
+#toggle-theme:has(.bi-sun-fill):hover {
+  background-color: #f8fafc !important;
+  border-color: #fde047 !important;
+  color: #ca8a04 !important;
+}
+
+/* 🌙 2. ESTILO DA LUA (FUNDO ESCURO + LUA ROXA) */
+/* Quando o botão contém o ícone da LUA (bi-moon, bi-moon-fill ou bi-moon-stars-fill) */
+#toggle-theme:has(.bi-moon),
+#toggle-theme:has(.bi-moon-fill),
+#toggle-theme:has(.bi-moon-stars-fill),
+.btn-theme-toggle:has(.bi-moon),
+.btn-theme-toggle:has(.bi-moon-fill),
+.btn-theme-toggle:has(.bi-moon-stars-fill) {
+  background-color: #0d0d11 !important; /* Fundo Escuro / Preto */
+  border: 1px solid #4c1d95 !important; /* Borda Roxo Escuro */
+  color: #a855f7 !important; /* Lua Roxa */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+#toggle-theme:has(.bi-moon) i,
+#toggle-theme:has(.bi-moon-fill) i,
+#toggle-theme:has(.bi-moon-stars-fill) i {
+  color: #a855f7 !important;
+}
+
+#toggle-theme:has(.bi-moon):hover,
+#toggle-theme:has(.bi-moon-fill):hover,
+#toggle-theme:has(.bi-moon-stars-fill):hover {
+  background-color: #15151e !important;
+  border-color: #6d28d9 !important;
+  color: #c084fc !important;
+}
+
+/* ===================================================
+   FORMULÁRIOS & CONTAINERS
+   =================================================== */
+
+.page-card {
+  max-width: 700px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-card {
+  max-width: 450px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  background-color: var(--card-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
 .form-control,
 .form-select,
-textarea,
-header,
-footer {
-  transition: 0.25s;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-img,
-picture,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
 textarea {
-  resize: vertical;
+  background-color: var(--input-color) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+}
+
+.form-control::placeholder,
+textarea::placeholder {
+  color: var(--text-muted-color) !important;
+  opacity: 0.75;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 0.25rem var(--focus-color) !important;
+}
+
+/* Ícones de Olho */
+#toggle-password,
+#toggle-confirm-password,
+.btn-toggle-password {
+  color: var(--eye-color) !important;
+  opacity: 0.95;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+#toggle-password:hover,
+#toggle-confirm-password:hover,
+.btn-toggle-password:hover {
+  color: var(--primary-color) !important;
+}
+
+/* ===================================================
+   HERO SECTION (Index)
+   =================================================== */
+
+section.py-5.text-center,
+.hero-wrapper {
+  position: relative;
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  padding: 4rem 1.5rem !important;
+  border-radius: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 16px 36px var(--hero-glow);
+  overflow: hidden;
+}
+
+section.py-5.text-center h1 {
+  font-weight: 800;
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+section.py-5.text-center .lead {
+  color: rgba(255, 255, 255, 0.9) !important;
+  max-width: 650px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ===================================================
+   CARDS DE FUNCIONALIDADES (Index)
+   =================================================== */
+
+.card-body .display-5 {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 1.25rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background-color: var(--icon-bg-green);
+  color: var(--icon-color-green);
+}
+
+.col-md-6:nth-child(2) .card .display-5 {
+  background-color: var(--icon-bg-yellow);
+  color: var(--icon-color-yellow);
+}
+
+.col-md-6:nth-child(3) .card .display-5 {
+  background-color: var(--icon-bg-red);
+  color: var(--icon-color-red);
+}
+
+/* ===================================================
+   BOTÕES E RODAPÉ
+   =================================================== */
+
+.btn {
+  border-radius: 0.75rem;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-success,
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border: none !important;
+  color: #ffffff !important;
+}
+
+.btn-success:hover,
+.btn-primary:hover {
+  background-color: var(--primary-hover) !important;
+  transform: translateY(-2px);
+}
+
+.text-muted,
+.form-text,
+small.text-muted {
+  color: var(--text-muted-color) !important;
+  opacity: 1 !important; /* Remove qualquer transparência fraca */
+}
+
+footer {
+  background-color: var(--surface-color) !important;
+  border-top: 1px solid var(--border-color) !important;
+  color: var(--text-muted-color);
 }

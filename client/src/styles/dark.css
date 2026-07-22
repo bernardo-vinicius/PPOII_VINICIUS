@@ -1,59 +1,57 @@
-:root {
-  --bg: #181a17;
-  --surface: #232622;
-  --text: #f2f2f2;
-  --muted: #bdbdbd;
-  --primary: #66bb6a;
-  --primary-hover: #81c784;
-  --danger: #ef5350;
-  --secondary: #a1887f;
-  --border: #444;
-  --input: #303330;
+:root[data-theme="dark"] {
+  /* Plano de Fundo & Gradiantes */
+  --bg-color: #0c120d;
+  --bg-gradient: linear-gradient(180deg, #090e0a 0%, #0c120d 100%);
+  --hero-bg: linear-gradient(135deg, #142917 0%, #1c3b21 60%, #0d2112 100%);
+  --hero-text: #ffffff;
+
+  /* Superfícies */
+  --surface-color: #162218;
+  --card-color: #1a281c;
+  --input-color: #223425;
+
+  /* Texto Principal */
+  --text-color: #f0f7f1;
+
+  /* Texto Secundário (Muted) - Mais Vivo e Luminoso */
+  --text-muted-color: #c2dbc6;
+
+  /* Cor do Ícone de Olho de Senha */
+  --eye-color: #f0f7f1;
+
+  /* Bordas */
+  --border-color: #2d4230;
+  --border-hover: #4caf50;
+
+  /* Cores Agro da Marca */
+  --primary-color: #4caf50;
+  --primary-hover: #66bb6a;
+  --secondary-color: #d98e48;
+  --secondary-hover: #e5a15f;
+  --accent-color: #ffca28;
+
+  /* Estados */
+  --success-color: #4caf50;
+  --danger-color: #ef4444;
+  --warning-color: #ffb74d;
+
+  /* Ícones e Destaques dos Cards */
+  --icon-bg-green: rgba(76, 175, 80, 0.15);
+  --icon-color-green: #66bb6a;
+  --icon-bg-yellow: rgba(255, 202, 40, 0.15);
+  --icon-color-yellow: #ffca28;
+  --icon-bg-red: rgba(239, 68, 68, 0.15);
+  --icon-color-red: #f87171;
+
+  /* Sombras */
+  --focus-color: rgba(76, 175, 80, 0.35);
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --hero-glow: rgba(76, 175, 80, 0.2);
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-}
-
-header,
-footer,
-.card {
-  background: var(--surface) !important;
-  color: var(--text);
-}
-
-.border-top,
-.border-bottom {
-  border-color: var(--border) !important;
-}
-
-.form-control,
-.form-select,
-textarea {
-  background: var(--input);
-  color: var(--text);
-  border-color: var(--border);
-}
-
-.form-control::placeholder,
-textarea::placeholder {
-  color: var(--muted);
-}
-
-.form-control:focus,
-.form-select:focus,
-textarea:focus {
-  background: var(--input);
-  color: var(--text);
-}
-
-.text-muted {
-  color: var(--muted) !important;
-}
-
-.btn-success {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: black;
+/* Força o sobressinal nas classes nativas do Bootstrap */
+.text-muted,
+[data-theme="dark"] .text-muted {
+  color: var(--text-muted-color) !important;
 }
