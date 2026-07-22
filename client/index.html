@@ -21,10 +21,12 @@
       defer
     ></script>
     <link rel="stylesheet" href="./src/styles/base.css" />
-    <link id="theme-css" rel="stylesheet" href="./src/styles/light.css" />
+    <link rel="stylesheet" href="./src/styles/light.css" />
+    <link rel="stylesheet" href="./src/styles/dark.css" />
+    <script src="./src/scripts/utils/theme.js" defer></script>
   </head>
   <body class="d-flex flex-column">
-    <header class="bg-white border-bottom shadow-sm">
+    <header class="border-bottom shadow-sm">
       <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light py-3">
           <a class="navbar-brand fw-bold text-primary" href="#">NeoBov</a>
@@ -52,6 +54,16 @@
                 <a class="nav-link" href="#contact">Créditos</a>
               </li>
             </ul>
+          </div>
+          <div class="d-flex align-items-center ms-3">
+            <button
+              id="toggle-theme"
+              class="btn btn-outline-secondary"
+              type="button"
+              aria-label="Alternar tema"
+            >
+              <i class="bi bi-moon-stars-fill"></i>
+            </button>
           </div>
         </nav>
       </div>
@@ -175,7 +187,7 @@
       </section>
     </main>
 
-    <footer id="contact" class="bg-white border-top py-3 mt-auto">
+    <footer id="contact" class="border-top py-3 mt-auto">
       <div class="container text-center">
         <small class="text-muted">
           &copy; 2026 Vinícius Saraiva. Todos os direitos reservados.

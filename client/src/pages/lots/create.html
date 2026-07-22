@@ -20,12 +20,13 @@
       crossorigin="anonymous"
       defer
     ></script>
-    <link rel="stylesheet" href="/client/src/styles/base.css" />
-    <link id="theme-css" rel="stylesheet" href="/client/src/styles/light.css" />
+    <link rel="stylesheet" href="../../styles/base.css" />
+    <link rel="stylesheet" href="../../styles/light.css" />
+    <link rel="stylesheet" href="../../styles/dark.css" />
+    <script src="../../scripts/utils/theme.js" defer></script>
   </head>
-
   <body class="d-flex flex-column">
-    <header class="bg-white border-bottom shadow-sm">
+    <header class="border-bottom shadow-sm">
       <div class="container d-flex align-items-center gap-3 py-3">
         <a
           href="../account/control.html"
@@ -36,14 +37,22 @@
         </a>
 
         <h1 class="h4 mb-0">NeoBov - Cadastro de Lote</h1>
+
+        <button
+          id="toggle-theme"
+          class="btn btn-outline-secondary ms-auto"
+          type="button"
+          aria-label="Alternar tema"
+        >
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
       </div>
     </header>
 
     <main
       class="d-flex justify-content-center align-items-center flex-grow-1 my-3"
     >
-      <!-- TODO: mover o max-width para uma classe CSS -->
-      <div class="card shadow p-5 w-100" style="max-width: 700px">
+      <div class="card shadow p-5 w-100 page-card">
         <form method="post" class="vstack gap-4">
           <fieldset>
             <legend class="fs-4 fw-semibold mb-3">Propriedade Vinculada</legend>
@@ -160,7 +169,7 @@
       </div>
     </main>
 
-    <footer class="bg-white border-top py-3 mt-auto">
+    <footer class="border-top py-3 mt-auto">
       <div class="container text-center">
         <small class="text-muted">
           &copy; 2026 Vinícius Saraiva. Todos os direitos reservados.
