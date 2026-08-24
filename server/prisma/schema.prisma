@@ -10,27 +10,201 @@ datasource db {
 }
 
 // Modelo para os usuários da aplicação
-model Usuario {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  senha  String
-  nome      String
-  data_criacao DateTime @default(now())
-  
-
-  // Relação: um usuário pode ter muitas postagens
-  postagens Postagem[]
+enum Sexo {
+  MACHO
+  FEMEA
 }
 
-// Modelo para as postagens do blog
-model Postagem {
-  id        Int      @id @default(autoincrement())
-  titulo     String
-  corpo   String
-  data_criacao DateTime @default(now())
-  
+enum TipoAnimal {
+  BOVINO
+  CAPRINO
+}
 
-  // Relação: uma postagem pertence a um autor
-  autorId  Int      
-  autor    Usuario     @relation(fields: [autorId], references: [id])
+model Usuario {
+  id        Int    @id @default(autoincrement())
+  nome      String
+  email     String @unique
+  senha     String
+  cpf       String @unique
+  telefone  String
+
+  idEnderecoResidencial Int? @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  enderecoResidencial Endereco? @relation(
+    "UsuarioEnderecoResidencial",
+    fields: [idEnderecoResidencial],
+    references: [id]
+  )
+
+  propriedades UsuarioPropriedade[]
+}
+
+model Endereco {
+  id           Int    @id @default(autoincrement())
+  estado       String
+  cep          String
+  cidade       String
+  logradouro   String
+  complemento  String?
+  numero       String
+
+  usuarioResidencial Usuario? @relation(
+    "UsuarioEnderecoResidencial"
+  )
+
+  propriedadeRural Propriedade? @relation(
+    "PropriedadeEnderecoRural"
+  )
+}
+
+model Propriedade {
+  id       Int     @id @default(autoincrement())
+  area     Decimal
+
+  idEnderecoRural Int? @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  enderecoRural Endereco? @relation(
+    "PropriedadeEnderecoRural",
+    fields: [idEnderecoRural],
+    references: [id]
+  )
+
+  proprietarios UsuarioPropriedade[]
+  lotes         Lote[]
+}
+
+model UsuarioPropriedade {
+  idUsuario      Int
+  idPropriedade  Int
+
+  usuario Usuario @relation(
+    fields: [idUsuario],
+    references: [id]
+  )
+
+  propriedade Propriedade @relation(
+    fields: [idPropriedade],
+    references: [id]
+  )
+
+  @@id([idUsuario, idPropriedade])
+  @@index([idPropriedade])
+}
+
+model Lote {
+  id            Int        @id @default(autoincrement())
+  area          Decimal
+  capacidade    Int
+  tipoAnimais   TipoAnimal
+  tipoPastagem  String
+
+  idPropriedade Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  propriedade Propriedade @relation(
+    fields: [idPropriedade],
+    references: [id]
+  )
+
+  animais Animal[]
+
+  movimentacoes MovimentacaoAnimal[]
+
+  @@index([idPropriedade])
+}
+
+model Animal {
+  id                   Int    @id @default(autoincrement())
+  codigoIdentificacao  String? @unique
+  idadeAproximadaMeses Int
+  sexo                 Sexo
+  raca                 String
+
+  idLote Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  lote Lote @relation(
+    fields: [idLote],
+    references: [id]
+  )
+
+  vacinacoes Vacina[]
+  pesagens   Pesagem[]
+
+  movimentacoes MovimentacaoAnimal[]
+
+  @@index([idLote])
+}
+
+model Pesagem {
+  id       Int      @id @default(autoincrement())
+  data     DateTime
+  peso     Decimal
+
+  idAnimal Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  animal Animal @relation(
+    fields: [idAnimal],
+    references: [id]
+  )
+
+  @@index([idAnimal, data])
+}
+
+model Vacina {
+  id            Int      @id @default(autoincrement())
+  nome          String
+  dataAplicacao DateTime
+  numeroLote    String
+
+  idAnimal Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  animal Animal @relation(
+    fields: [idAnimal],
+    references: [id]
+  )
+
+  @@index([idAnimal, dataAplicacao])
+}
+
+model MovimentacaoAnimal {
+  id Int @id @default(autoincrement())
+
+  dataEntrada DateTime
+  dataSaida   DateTime?
+
+  idAnimal Int
+  idLote   Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  animal Animal @relation(
+    fields: [idAnimal],
+    references: [id]
+  )
+
+  lote Lote @relation(
+    fields: [idLote],
+    references: [id]
+  )
+
+  @@index([idAnimal, dataEntrada])
+  @@index([idLote, dataEntrada])
 }
